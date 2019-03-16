@@ -1,0 +1,38 @@
+{
+  "name": "Mqtt Echo",
+  "version": "1.0.0",
+  "slug": "mqtt_echo",
+  "description": "Echo e.g. a command topic to a state topic.",
+  "startup": "before",
+  "boot": "auto",
+  "map": ["share:rw"],
+  "options": {
+    "echo_topics": [],
+    "fix_values": [],
+    "mqtt_server": "",
+    "mqtt_server_port": 1883,
+    "mqtt_user": "",
+    "mqtt_pass": "",
+    "log_level": ""
+  },
+  "schema": {
+    "echo_topics": [
+      {
+        "command": "str",
+        "state": "str"
+      }
+    ],
+    "fix_values": [
+      {
+        "key_in": "str",
+        "key_out": "str",
+        "val": "str"
+      }
+    ],
+    "mqtt_server": "str",
+    "mqtt_server_port": "int",
+    "mqtt_user": "str?",
+    "mqtt_pass": "str?",
+    "log_level": "str?"
+  }
+}
