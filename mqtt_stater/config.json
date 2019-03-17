@@ -10,7 +10,6 @@
   ],
   "options": {
     "echo_topics": [],
-    "fix_values": [],
     "mqtt_server": "",
     "mqtt_server_port": 1883,
     "mqtt_user": "",
