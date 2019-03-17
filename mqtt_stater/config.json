@@ -1,6 +1,6 @@
 {
   "name": "Mqtt Stater",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "slug": "mqtt_stater",
   "description": "Publish specific mqtt command, when getting a specified mqtt command. For example for setting a rgb color as a state when setting a color_temp",
   "startup": "before",

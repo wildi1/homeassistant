@@ -9,7 +9,7 @@ RUN apk add --update --no-cache curl jq python3 git &&  pip3 install --no-cache-
 
 # Copy data for add-on
 COPY run.sh /
-COPY mqtt_echo.py /
+COPY mqtt_stater.py /
 
 RUN chmod a+x /run.sh
 
