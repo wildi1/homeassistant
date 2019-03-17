@@ -22,13 +22,8 @@
         "command": "str",
         "state": "str",
         "state_fire": "int?",
-        "fix_values": [
-          {
-            "key_in": "str",
-            "key_out": "str",
-            "val": "str"
-          }
-        ]
+        "key_in": "str",
+        "val": "str"
       }
     ],
     "mqtt_server": "str",

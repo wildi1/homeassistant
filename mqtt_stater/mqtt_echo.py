@@ -19,24 +19,21 @@ def on_connect(client, userdata, flags, rc):
 
 def on_message(client, userdata, msg):
     for topic in echo_topics:
-        if msg.topic == topic['command']:
-            new_vals = json.loads(msg.payload)
-            for fix_val in topic['fix_values']:
-                if fix_val['key_in'] in new_vals.keys():
-                    val = fix_val['val']
-                    try:
-                        val = json.loads(val.replace("'", '"'))
-                    except ValueError as e:
-                        if val.isdigit():
-                            val = float(val)
-                    dirty[topic['state']] = {
-                        'state_count': 0,
-                        'state_fire': topic['state_fire'],
-                        'val': val
-                    }
-                    log("Update: " + str(msg.topic) + " " + str(msg.payload))
-                    return
-
+        new_vals = json.loads(msg.payload)
+        if msg.topic == topic['command'] and topic['key_in'] in new_vals.keys():
+            val = topic['val']
+            try:
+                val = json.loads(val.replace("'", '"'))
+            except ValueError as e:
+                if val.isdigit():
+                    val = float(val)
+            dirty[topic['state']] = {
+                'state_count': 0,
+                'state_fire': topic['state_fire'],
+                'val': val
+            }
+            log("Update: " + str(msg.topic) + " " + str(msg.payload))
+            return
         elif msg.topic == topic['state'] and msg.topic in dirty:
             dirty[msg.topic]['state_count'] += 1
             if dirty[msg.topic]['state_count'] == dirty[msg.topic]['state_fire']:
