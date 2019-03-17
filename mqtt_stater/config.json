@@ -1,11 +1,13 @@
 {
-  "name": "Mqtt Echo",
+  "name": "Mqtt Stater",
   "version": "1.0.0",
-  "slug": "mqtt_echo",
-  "description": "Echo e.g. a command topic to a state topic.",
+  "slug": "mqtt_stater",
+  "description": "Publish specific mqtt command, when getting a specified mqtt command. For example for setting a rgb color as a state when setting a color_temp",
   "startup": "before",
   "boot": "auto",
-  "map": ["share:rw"],
+  "map": [
+    "share:rw"
+  ],
   "options": {
     "echo_topics": [],
     "fix_values": [],
@@ -19,14 +21,15 @@
     "echo_topics": [
       {
         "command": "str",
-        "state": "str"
-      }
-    ],
-    "fix_values": [
-      {
-        "key_in": "str",
-        "key_out": "str",
-        "val": "str"
+        "state": "str",
+        "state_fire": "int?",
+        "fix_values": [
+          {
+            "key_in": "str",
+            "key_out": "str",
+            "val": "str"
+          }
+        ]
       }
     ],
     "mqtt_server": "str",
